@@ -1,0 +1,73 @@
+server:  
+    port: 8080
+    session:
+      timeout: 1800
+    tomcat.max-threads: 450  
+    tomcat.uri-encoding: UTF-8
+#    context-path: /pms-api
+
+application:
+  server-name: zhong-refactor
+  server-port: 8082
+  server-launcher: com.zhong.pms.BootStrap
+
+##注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.122.1.240:1101/eureka/
+  instance:
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+management:
+  security:
+    enabled: false
+
+spring:
+  application:
+    name: zhong-pms-web
+  profiles:
+    include: 'db'
+  output:
+    ansi:
+      enabled: always
+
+#mybatis:
+#  mapperLocations: com/gome/pms/mapper/*.xml
+#  typeAliasesPackage: com.gome.pms.entity
+#  configLocation: mybatis-config.xml
+
+swagger:
+  title: 重构平台
+  description: spring-boot-starter-swagger(Starter for swagger 2.x)
+  version: 1.1.0.RELEASE
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+  contact:
+    name: wangjie
+    email: wangjie36@gome.com.cn
+  base-package: com.gome.pms
+
+useraccess:
+  host: http://10.122.2.54:8081
+  accountByAccountNoPath: /account/getAccountByAccountNo
+  accountQuery: /account/queryAccount
+  accountUpdateAccountInfo: /account/updateAccountInfo
+  accountUpdatePassword: /account/updatePassword
+
+cloudCache:
+  nameSpace: gome-pms-200
+  authKey: 17ecd29b61eb148faa56be4cd7e35fab8

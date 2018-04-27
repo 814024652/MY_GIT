@@ -1,0 +1,64 @@
+server:  
+    port: 8080
+    session:
+      timeout: 1800
+    tomcat.max-threads: 450  
+    tomcat.uri-encoding: UTF-8
+#    context-path: /pms-api
+
+application:
+  server-name: gome-pms
+  server-port: 8080
+  server-launcher: com.gome.pms.BootStrap
+
+##注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka1.axwl.gome.inc:1101/eureka/,http://eureka1.axwl.gome.inc:1102/eureka/,http://eureka1.axwl.gome.inc:1103/eureka/,http://eureka2.axwl.gome.inc:1101/eureka/,http://eureka2.axwl.gome.inc:1102/eureka/,http://eureka2.axwl.gome.inc:1103/eureka/
+  instance:
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+management:
+  security:
+    enabled: false
+  
+spring:
+  application:
+    name: gome-pms-web
+
+  output:
+    ansi:
+      enabled: always
+
+sso:
+  address: http://passport.axwl.gome.inc
+  checkTokenUri: /auth/checkToken
+  authLoginUri: /auth/login
+  authLogoutUri: /auth/logout
+
+useraccess:
+  host: http://admin.axwl.gome.inc
+  accountByAccountNoPath: /account/getAccountByAccountNo
+  accountQuery: /account/queryAccount
+  accountUpdateAccountInfo: /account/updateAccountInfo
+  accountUpdatePassword: /account/updatePassword
+
+cloudCache:
+  nameSpace: gome-pms-800
+  authKey: 17b8dd343cad34f40835a45c4d8f0f442
+
+swagger:
+  enabled: false

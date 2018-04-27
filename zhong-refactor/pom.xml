@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>zhong.com</groupId>
+    <artifactId>zhong-refactor</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <modules>
+        <module>zhong-standalone</module>
+        <module>zhong-service</module>
+        <module>zhong-dao</module>
+        <module>zhong-entity</module>
+        <module>zhong-web</module>
+        <module>zhong-common</module>
+        <module>zhong-facade</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <!--基础框架包、工具类包-->
+        <gome.commons.version>1.1.0</gome.commons.version>
+        <gome.framework.version>3.1.0</gome.framework.version>
+        <gome.shared.datasource.version>1.0.0</gome.shared.datasource.version>
+        <gome.rop.version>2.0.1-SNAPSHOT</gome.rop.version>
+        <mybatis.version>3.4.2</mybatis.version>
+        <java.version>1.8</java.version>
+        <anxl.sso.client.version>0.0.2-SNAPSHOT</anxl.sso.client.version>
+        <spring.cloud.version>Dalston.SR5</spring.cloud.version>
+        <profiles.dir>src/main/profiles</profiles.dir>
+    </properties>
+
+
+
+
+
+    <dependencies>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

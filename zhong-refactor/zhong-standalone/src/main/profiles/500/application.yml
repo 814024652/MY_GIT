@@ -1,0 +1,73 @@
+server:  
+    port: 8081
+    session:
+      timeout: 1800
+    tomcat.max-threads: 450  
+    tomcat.uri-encoding: UTF-8
+#    context-path: /pms-api
+
+application:
+  server-name: gome-pms
+  server-port: 8081
+  server-launcher: com.gome.pms.BootStrap
+
+##注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.112.76.53:1102/eureka/
+  instance:
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+management:
+  security:
+    enabled: false
+  
+spring:
+  application:
+    name: gome-pms-web
+
+  output:
+    ansi:
+      enabled: always
+
+swagger:
+  title: 统一权限管理平台
+  description: spring-boot-starter-swagger(Starter for swagger 2.x)
+  version: 1.1.0.RELEASE
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+  contact:
+    name: wangjie
+    email: wangjie36@gome.com.cn
+  base-package: com.gome.pms
+
+sso:
+  address: http://10.112.76.39:8082
+  checkTokenUri: /auth/checkToken
+  authLoginUri: /auth/login
+  authLogoutUri: /auth/logout
+
+useraccess:
+  host: http://10.112.76.41:8081
+  accountByAccountNoPath: /account/getAccountByAccountNo
+  accountQuery: /account/queryAccount
+  accountUpdateAccountInfo: /account/updateAccountInfo
+  accountUpdatePassword: /account/updatePassword
+
+cloudCache:
+  nameSpace: gome-pms-500
+  authKey: 1c4f8d669c58345498f6c6f0c8cfc56b1

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zhong-refactor</artifactId>
+        <groupId>zhong.com</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>zhong-entity</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.gome</groupId>
+            <artifactId>gome-framework-entity</artifactId>
+            <version>${gome.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.spring4all</groupId>
+            <artifactId>spring-boot-starter-swagger</artifactId>
+            <version>1.5.1.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gome</groupId>
+            <artifactId>gome-rop</artifactId>
+            <version>${gome.rop.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.gome</groupId>
+                    <artifactId>gome-commons-codec</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>zhong.com</groupId>
+            <artifactId>zhong-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gome</groupId>
+            <artifactId>anxl-sso-client</artifactId>
+            <version>${anxl.sso.client.version}</version>
+        </dependency>
+    </dependencies>
+</project>
